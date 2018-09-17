@@ -5,7 +5,7 @@ import movieData from './data.js'
 export default class MovieShowcase extends Component {
 
   generateMovieCards = () => {
-    // map over your movieData array and return the correct 
+    return movieData.map((data, index) => <MovieCard key={index} {...data} />)
   }
 
   render() {
@@ -15,4 +15,11 @@ export default class MovieShowcase extends Component {
       </div>
     )
   }
+}
+
+MovieCard.defaultProps = {
+  title: "Unknown",
+  IMDBRating: null,
+  genres: ['No Genre(s) Found'],
+  poster: "default"
 }
